@@ -354,7 +354,7 @@ sub _getMethods {
 	
 	`which rdesktop 1>/dev/null 2>&1`; my $rdesktop = $?;
 	$methods{ 'RDP (rdesktop)' } = {
-		'installed' => sub { return ( ! $rdesktop ) ? 1 : "No 'rdesktop' binary found.\nTo use this option, please, install :'rdesktop'"; },
+		'installed' => sub { return ( ! $rdesktop ) ? 1 : "No 'rdesktop' binary found.\nTo use this option install:\n'rdesktop'"; },
 		'checkCFG' => sub {
 			my $cfg		= shift;
 			
@@ -416,7 +416,7 @@ sub _getMethods {
 	
 	`which xfreerdp 1>/dev/null 2>&1`; my $xfreerdp = $?;
 	$methods{ 'RDP (xfreerdp)' } = {
-		'installed' => sub { return ( ! $xfreerdp ) ? 1 : "No 'xfreerdp' binary found.\nTo use this option, please, install:\n'freerdp-x11'"; },
+		'installed' => sub { return ( ! $xfreerdp ) ? 1 : "No 'xfreerdp' binary found.\nTo use this option install:\n'freerdp'"; },
 		'checkCFG' => sub {
 			my $cfg		= shift;
 			
