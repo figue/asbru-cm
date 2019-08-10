@@ -256,10 +256,10 @@ sub _buildGUI {
 	$w{vbox} = $container;
 		
 		$w{hbox1} = Gtk2::HBox -> new( 0, 5 );
-		$w{vbox} -> pack_start( $w{hbox1}, 0, 1, 5 );
+		$w{vbox} -> pack_start( $w{hbox1}, 0, 7, 5 );
 			
 			$w{frRDPVersion} = Gtk2::Frame -> new( 'RDP Version:' );
-			$w{hbox1} -> pack_start( $w{frRDPVersion}, 1, 1, 0 );
+			$w{hbox1} -> pack_start( $w{frRDPVersion}, 0, 0, 0 );
 			$w{frRDPVersion} -> set_shadow_type( 'GTK_SHADOW_NONE' );
 			$w{frRDPVersion} -> set_tooltip_text( '-(4|5) : Use RDP v4 or v5 (default)' );
 				
@@ -268,7 +268,7 @@ sub _buildGUI {
 				foreach my $rdp_version ( 4, 5 ) { $w{cbRDPVersion} -> append_text( $rdp_version ); };
 			
 			$w{frBPP} = Gtk2::Frame -> new( 'BPP:' );
-			$w{hbox1} -> pack_start( $w{frBPP}, 1, 1, 0 );
+			$w{hbox1} -> pack_start( $w{frBPP}, 0, 0, 0 );
 			$w{frBPP} -> set_shadow_type( 'GTK_SHADOW_NONE' );
 			$w{frBPP} -> set_tooltip_text( '[-a] : Sets the colour depth for the connection (8, 15, 16, 24 or 32)' );
 				
@@ -276,42 +276,42 @@ sub _buildGUI {
 				$w{frBPP} -> add( $w{cbBPP} );
 				foreach my $bpp ( 8, 15, 16, 24, 32 ) { $w{cbBPP} -> append_text( $bpp ); };
 			
-			$w{vboxup} = Gtk2::VBox -> new( 0, 0 );
+			$w{vboxup} = Gtk2::VBox -> new( 1, 1 );
 			$w{hbox1} -> pack_start( $w{vboxup}, 0, 1, 5 );
 					
-				$w{hboxup} = Gtk2::HBox -> new( 0, 0 );
-				$w{vboxup} -> pack_start( $w{hboxup}, 1, 1, 0 );
+				$w{hboxup} = Gtk2::HBox -> new( 1, 1 );
+				$w{vboxup} -> pack_start( $w{hboxup}, 1, 1, 1 );
 				
 					$w{chAttachToConsole} = Gtk2::CheckButton -> new_with_label( 'Attach to console' );
-					$w{hboxup} -> pack_start( $w{chAttachToConsole}, 1, 1, 0 );
+					$w{hboxup} -> pack_start( $w{chAttachToConsole}, 1, 1, 5 );
 					$w{chAttachToConsole} -> set_tooltip_text( '[-0] : Attach to console of server (requires Windows Server 2003 or newer)' );
 					
 					$w{chBitmapCaching} = Gtk2::CheckButton -> new_with_label( 'Bitmap Cache' );
-					$w{hboxup} -> pack_start( $w{chBitmapCaching}, 1, 1, 0 );
+					$w{hboxup} -> pack_start( $w{chBitmapCaching}, 1, 1, 5 );
 					$w{chBitmapCaching} -> set_tooltip_text( '[-P] : Enable caching of bitmaps to disk (persistent bitmap caching)' );
 					
 					$w{chUseCompression} = Gtk2::CheckButton -> new_with_label( 'Compression' );
-					$w{hboxup} -> pack_start( $w{chUseCompression}, 1, 1, 0 );
+					$w{hboxup} -> pack_start( $w{chUseCompression}, 1, 1, 5 );
 					$w{chUseCompression} -> set_tooltip_text( '[-z] : Enable compression of the RDP datastream' );
 					
 					$w{cbScard} = Gtk2::CheckButton -> new_with_label( 'Use SmartCard' );
-					$w{hboxup} -> pack_start( $w{cbScard}, 0, 1, 0 );
+					$w{hboxup} -> pack_start( $w{cbScard}, 1, 1, 5 );
 					$w{cbScard} -> set_tooltip_text( '[-r scard] : Enable SmartCard usage' );
 		
-				$w{hboxdown} = Gtk2::HBox -> new( 0, 0 );
-				$w{vboxup} -> pack_start( $w{hboxdown}, 1, 1, 0 );
+				$w{hboxdown} = Gtk2::HBox -> new( 1, 1 );
+				$w{vboxup} -> pack_start( $w{hboxdown}, 1, 1, 1 );
 					
 					$w{chClipboard} = Gtk2::CheckButton -> new_with_label( 'Clipboard forwarding' );
 					$w{chClipboard} -> set_tooltip_text( '[-r clipboard:PRIMARYCLIPBOARD] : Enable clipboard forwarding' );
-					$w{hboxdown} -> pack_start( $w{chClipboard}, 0, 1, 0 );
+					$w{hboxdown} -> pack_start( $w{chClipboard}, 0, 1, 5 );
 					
-					$w{cbEnableSeamless} = Gtk2::CheckButton -> new_with_label( 'Enable SeamlessRDP ' );
+					$w{cbEnableSeamless} = Gtk2::CheckButton -> new_with_label( 'Enable SeamlessRDP' );
 					$w{cbEnableSeamless} -> set_tooltip_text( '[-A] : Enable SeamlessRDP' );
-					$w{hboxdown} -> pack_start( $w{cbEnableSeamless}, 0, 1, 0 );
+					$w{hboxdown} -> pack_start( $w{cbEnableSeamless}, 0, 1, 5 );
 					
 					$w{chNoGrabKbd} = Gtk2::CheckButton -> new_with_label( 'Keep WM key bindings' );
 					$w{chNoGrabKbd} -> set_tooltip_text( "[-K] : keep window manager key bindings" );
-					$w{hboxdown} -> pack_start( $w{chNoGrabKbd}, 0, 1, 0 );
+					$w{hboxdown} -> pack_start( $w{chNoGrabKbd}, 0, 1, 5 );
 
 		
 		
